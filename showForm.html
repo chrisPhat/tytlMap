@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+
+<body class="formBody">
+    <div class="formContainer">
+        <form class="addForm">
+            <label for="cityName">City Name:</label><br>
+            <input type="text" id="cityName" name="cityName"><br>
+
+            <label for="showDate">Show Date:</label><br>
+            <input type="date" id="showDate" name="showDate"><br>
+
+            <label for="latitude">Latitude:</label><br>
+            <input type="text" id="latitude" name="latitude"><br>
+
+            <label for="longitude">Longitude:</label><br>
+            <input type="text" id="longitude" name="longitude"><br>
+
+            <label for="venueName">Venue Name:</label><br>
+            <input type="text" id="venueName" name="venueName"><br>
+
+            <label for="ticketLink">Ticket Link:</label><br>
+            <input type="text" id="ticketLink" name="ticketLink"><br>
+
+            <label for="soldOut">Soldout:</label><br>
+            <select name="soldOut">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br>
+
+            <input class="submitButton" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="js/firebase.js"></script>
+
+<script>
+    var form = document.querySelector('.addForm');
+    var cityName = form
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        db.collection('shows').doc().set({
+            cityName: form.cityName.value,
+            latitude: form.latitude.value,
+            longitude: form.longitude.value,
+            showDate: form.showDate.value,
+            soldOut: form.soldOut.value,
+            venueName: form.venueName.value
+        }).then(() => {
+            location.reload();
+        })
+    })
+</script>
+
+</html>
