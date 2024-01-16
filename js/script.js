@@ -1,4 +1,16 @@
-var map = L.map('map').setView([54.3781, -2.8], 6);
+var mapBTN = document.querySelector('.mapBTN');
+var mapContainer =  document.querySelector('.mapContainer');
+var showList = document.querySelector('.showList');
+
+mapBTN.addEventListener('click', ()=>{
+    mapContainer.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+})
+
+var map = L.map('map').setView([54.3781, -2.8], 5);
+//map.scrollWheelZoom.disable();
 
 var pastLocations = [];
 var liveLocations = [];
@@ -32,6 +44,18 @@ db.collection('shows').orderBy('showDate').get().then((querysnapshot) => {
         <h2>${location.venueName}</h2>
         <a href='${location.ticketLink}'>Click for Tickets</a>
         `);
+        //adding li to show list
+        var showListItem = document.createElement('li');
+        const output = `
+        <li class="showListItem">
+            <div>
+            ${location.venueName} || ${location.cityName}<br>
+            ${location.showDate}
+            </div>
+            <a herf="#">Buy Tickets</a>    
+        </li>
+        `;
+        showList.insertAdjacentHTML('beforeend', output);
     })
 
 });
@@ -73,3 +97,4 @@ pastLocations.forEach((location) => {
 L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
     maxZoom: 10,
 }).addTo(map);
+
