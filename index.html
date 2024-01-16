@@ -16,36 +16,44 @@
 <body>
     <header>
         <img class="headerEmoji" src="/assets/headerEmoji.png" alt="An Emo Emoji">
-        
+
         <img class="headerTitle" src="/assets/headerTitle.png" alt="Ten Years Too Late">
         <ul class="socMedLinks">
             <li>
-                <a href="https://www.tiktok.com/@tenyearstoolateemo">
+                <a href="https://www.tiktok.com/@tenyearstoolateemo" target="_blank">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
-                <a href="https://www.facebook.com/tenyearstoolateuk">
+                <a href="https://www.facebook.com/tenyearstoolateuk" target="_blank">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
-                <a href="https://discord.com/invite/TeszWrdh">
+                <a href="https://discord.com/invite/TeszWrdh" target="_blank">
                     <i class="fa-brands fa-discord"></i>
                 </a>
-                <a href="https://www.youtube.com/@tenyearstoolateuk">
+                <a href="https://www.youtube.com/@tenyearstoolateuk" target="_blank">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://www.instagram.com/tenyearstoolateuk">
+                <a href="https://www.instagram.com/tenyearstoolateuk" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://tenyearstoolateuk.bigcartel.com/">
+                <a href="https://tenyearstoolateuk.bigcartel.com/" target="_blank">
                     <i class="fa-solid fa-shirt"></i>
                 </a>
-                <a href="https://linktr.ee/tenyearstoolate">
+                <a href="https://linktr.ee/tenyearstoolate" target="_blank">
                     <i class="fa-solid fa-ticket"></i>
                 </a>
             </li>
         </ul>
         <button class="mapBTN">Still Emo Tour Map</button>
     </header>
-    <div id="map"></div>
+    <main>
+        <div class="container mapContainer">
+            <div id="map"></div>
+        </div>
+        <div class="container showContainer">
+            <ul class="showList"></ul>
+        </div>
+    </main>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
